@@ -15,4 +15,5 @@ include(
     "polynomialParametrisationIsAlgebraic",
     "voronoiDiagram",
     "kosholka",
+    "arc",
 )
