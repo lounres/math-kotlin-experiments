@@ -14,5 +14,4 @@ dependencyResolutionManagement {
 include(
     "polynomialParametrisationIsAlgebraic",
     "voronoiDiagram",
-    "kosholka",
 )
