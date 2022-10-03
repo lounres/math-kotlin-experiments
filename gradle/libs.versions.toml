@@ -1,7 +1,7 @@
 [versions]
 kotlin = "1.7.10"
 kmath = "0.3.0"
-kone = "0.1.0-pre-1"
+kone = "0.0.0-dev-1"
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
@@ -14,10 +14,11 @@ kmath-functions = { module = "space.kscience:kmath-functions", version.ref = "km
 
 # Kone
 # TODO: Remove "-jvm" suffix
-kone-core = { module = "com.lounres.kone:kone-core-jvm", version.ref = "kone" }
-kone-algebraic = { module = "com.lounres.kone:kone-algebraic-jvm", version.ref = "kone" }
-kone-numberTheory = { module = "com.lounres.kone:kone-numberTheory-jvm", version.ref = "kone" }
-kone-polynomial = { module = "com.lounres.kone:kone-polynomial-jvm", version.ref = "kone" }
+kone-core = { module = "com.lounres.kone:kone-core", version.ref = "kone" }
+kone-algebraic = { module = "com.lounres.kone:kone-algebraic", version.ref = "kone" }
+kone-numberTheory = { module = "com.lounres.kone:kone-numberTheory", version.ref = "kone" }
+kone-polynomial = { module = "com.lounres.kone:kone-polynomial", version.ref = "kone" }
+kone-misc-planimetricsCalculation = { module = "com.lounres.kone:kone-planimetricsCalculation", version.ref = "kone" }
 
 [bundles]
 kmath-polynomial = [
