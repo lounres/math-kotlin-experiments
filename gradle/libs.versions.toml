@@ -18,6 +18,7 @@ kone-core = { module = "com.lounres.kone:kone-core", version.ref = "kone" }
 kone-algebraic = { module = "com.lounres.kone:kone-algebraic", version.ref = "kone" }
 kone-numberTheory = { module = "com.lounres.kone:kone-numberTheory", version.ref = "kone" }
 kone-polynomial = { module = "com.lounres.kone:kone-polynomial", version.ref = "kone" }
+kone-linearAlgebra = { module = "com.lounres.kone:kone-linearAlgebra", version.ref = "kone" }
 kone-misc-planimetricsCalculation = { module = "com.lounres.kone:kone-planimetricsCalculation", version.ref = "kone" }
 
 [bundles]
