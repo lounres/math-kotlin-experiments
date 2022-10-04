@@ -4,7 +4,9 @@ import com.lounres.kone.algebraic.Rational
 import com.lounres.kone.algebraic.invoke
 import com.lounres.kone.misc.planimetricsCalculation.*
 
-fun main() = Rational.field.planimetricsCalculationContext {
+
+fun main() = desarguesTheorem()
+fun desarguesTheorem() = Rational.field.planimetricsCalculationContext {
     // Let's discuss Desargues's theorem.
 
     // Let A1, B1, C1, A2, B2, and C2 be points on plane.

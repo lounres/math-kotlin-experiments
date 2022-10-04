@@ -35,6 +35,14 @@ subprojects {
                     progressiveMode = true
                 }
             }
+            val test by getting {
+                dependencies {
+                    implementation(kotlin("test"))
+                }
+            }
         }
+    }
+    tasks.named<Test>("test") {
+        useJUnitPlatform()
     }
 }
