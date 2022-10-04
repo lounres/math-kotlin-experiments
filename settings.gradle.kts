@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 include(
     "polynomialParametrisationIsAlgebraic",
     "voronoiDiagram",
-    "kosholka",
+    "planimetricsComputationExample",
 )
