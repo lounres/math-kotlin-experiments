@@ -1,7 +1,7 @@
 @file:Suppress("LocalVariableName")
 
-import com.lounres.kone.algebraic.invoke
 import com.lounres.kone.algebraic.Rational
+import com.lounres.kone.algebraic.invoke
 import com.lounres.kone.misc.planimetricsCalculation.*
 
 fun main() = Rational.field.planimetricsCalculationContext {
@@ -32,17 +32,23 @@ fun main() = Rational.field.planimetricsCalculationContext {
     val desarguesTheoremConcurrencyCondition = concurrencyCondition(a, b, c)
     val desarguesTheoremCollinearityCondition = collinearityCondition(Aprime, Bprime, Cprime)
     // Uncomment the following lines to print the polynomials.
-    println(desarguesTheoremConcurrencyCondition)
-    println(desarguesTheoremCollinearityCondition)
-    println()
+//    println(desarguesTheoremConcurrencyCondition)
+//    println(desarguesTheoremCollinearityCondition)
+//    println()
     // But be aware that they are very big.
 
-    polynomialSpace {
-        println(desarguesTheoremConcurrencyCondition.degrees)
-        println(desarguesTheoremCollinearityCondition.degrees)
-        val kek = listOf(A1, A2).fold(desarguesTheoremConcurrencyCondition) { acc, point ->
-            acc * (point.x + point.y + point.z)
-        }
-        println(kek eq desarguesTheoremCollinearityCondition)
-    }
+    // Let's check such equality:
+    println(polynomialSpace {
+        desarguesTheoremConcurrencyCondition *
+                collinearityCondition(A1, B1, C1) *
+                collinearityCondition(A2, B2, C2) eq desarguesTheoremCollinearityCondition
+    })
+    println()
+    // >>> true
+
+    // This equality means that A`, B`, and C` are collinear iff either a, b, and c are concurrent,
+    // A1, B1, and C1 are collinear or A2, B2, and C2 are collinear.
+
+    // Well, the theorem supposes that the points are distinct. Thus, we proved the theorem in a computational way!
+    // Congratulations to us!!!
 }
