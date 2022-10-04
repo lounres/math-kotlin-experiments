@@ -4,7 +4,9 @@ import com.lounres.kone.algebraic.invoke
 import com.lounres.kone.algebraic.Rational
 import com.lounres.kone.misc.planimetricsCalculation.*
 
-fun main() = Rational.field.planimetricsCalculationContext {
+
+fun main() = eulerLine()
+fun eulerLine() = Rational.field.planimetricsCalculationContext {
     // Let A, B, and C by points (on plane):
     val A = Point("A")
     val B = Point("B")

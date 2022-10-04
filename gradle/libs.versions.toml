@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.7.10"
+kotlin = "1.7.20"
 kmath = "0.3.0"
 kone = "0.0.0-dev-1"
 
