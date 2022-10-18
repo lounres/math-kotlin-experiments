@@ -10,12 +10,12 @@ fun desarguesTheorem() = Rational.field.planimetricsCalculationContext {
     // Let's discuss Desargues's theorem.
 
     // Let A1, B1, C1, A2, B2, and C2 be points on plane.
-    val A1 = Point("A1")
-    val B1 = Point("B1")
-    val C1 = Point("C1")
-    val A2 = Point("A2")
-    val B2 = Point("B2")
-    val C2 = Point("C2")
+    val A1 by Point
+    val B1 by Point
+    val C1 by Point
+    val A2 by Point
+    val B2 by Point
+    val C2 by Point
 
     // Let a, b, and c be lines through A1 and A2, B1 and B2, C1 and C2 respectively.
     val a = lineThrough(A1, A2)
