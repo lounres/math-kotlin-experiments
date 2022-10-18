@@ -1,5 +1,5 @@
 kotlin {
     dependencies {
-        implementation(libs.kone.misc.planimetricsCalculation)
+        implementation(kone.misc.planimetricsCalculation)
     }
 }
