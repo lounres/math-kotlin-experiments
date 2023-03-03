@@ -2,6 +2,13 @@ rootProject.name = "math-kotlin-experiments"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
+val projectProperties = java.util.Properties()
+file("gradle.properties").inputStream().use {
+    projectProperties.load(it)
+}
+
+val koneVersion : String by projectProperties
+
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     repositories {
@@ -12,7 +19,14 @@ dependencyResolutionManagement {
     }
 
     versionCatalogs {
-        create("kone").from("com.lounres.kone:versionCatalog:0.0.0-dev-1")
+        create("kone").from("com.lounres:kone.versionCatalog:$koneVersion")
+    }
+}
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
     }
 }
 
