@@ -16,33 +16,61 @@ allprojects {
     }
 }
 
-subprojects {
-    apply(plugin = "org.jetbrains.kotlin.jvm")
-    configure<KotlinJvmProjectExtension> {
-        target.compilations.all {
-            kotlinOptions {
-                freeCompilerArgs += listOf(
-                    "-Xcontext-receivers",
-//                    "-Xuse-k2",
-                )
-                jvmTarget = properties["jvmTarget"] as String
-            }
-        }
+val jvmTargetVersion: String by properties
 
-        sourceSets {
-            all {
-                languageSettings {
-                    progressiveMode = true
+featuresManagement {
+    features {
+        on("kotlin jvm") {
+            apply(plugin = "org.jetbrains.kotlin.jvm")
+            configure<KotlinJvmProjectExtension> {
+                target.compilations.all {
+                    kotlinOptions {
+                        jvmTarget = jvmTargetVersion
+                    }
+                    compileTaskProvider.apply {
+                        // TODO: Check if really is necessary
+                        kotlinOptions {
+                            jvmTarget = jvmTargetVersion
+                        }
+                    }
+                }
+
+                sourceSets {
+                    all {
+                        languageSettings {
+                            progressiveMode = true
+                        }
+                    }
+                    val test by getting {
+                        dependencies {
+                            implementation(kotlin("test"))
+                        }
+                    }
                 }
             }
-            val test by getting {
-                dependencies {
-                    implementation(kotlin("test"))
+            tasks.named<Test>("test") {
+                useJUnitPlatform()
+            }
+        }
+        on("kotlin common settings") {
+            configure<org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension> {
+                sourceSets {
+                    all {
+                        languageSettings {
+                            progressiveMode = true
+                            optIn("kotlin.contracts.ExperimentalContracts")
+                        }
+                    }
+                }
+            }
+            pluginManager.withPlugin("org.gradle.java") {
+                configure<JavaPluginExtension> {
+                    targetCompatibility = JavaVersion.toVersion(jvmTargetVersion)
+                }
+                tasks.withType<Test> {
+                    useJUnitPlatform()
                 }
             }
         }
-    }
-    tasks.named<Test>("test") {
-        useJUnitPlatform()
     }
 }

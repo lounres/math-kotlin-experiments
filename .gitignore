@@ -113,9 +113,13 @@ gradle-app.setting
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-### Lounres template
+### Lounres's template
 # IntelliJ project files
 .idea
+!.idea/icon.svg
+!.idea/scopes
+!.idea/copyright
+!.idea/vcs.xml
 *.iml
 out
 gen

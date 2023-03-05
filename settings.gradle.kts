@@ -2,6 +2,13 @@ rootProject.name = "math-kotlin-experiments"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
+val projectProperties = java.util.Properties()
+file("gradle.properties").inputStream().use {
+    projectProperties.load(it)
+}
+
+val koneVersion : String by projectProperties
+
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     repositories {
@@ -12,12 +19,36 @@ dependencyResolutionManagement {
     }
 
     versionCatalogs {
-        create("kone").from("com.lounres.kone:versionCatalog:0.0.0-dev-1")
+        create("kone").from("com.lounres:kone.versionCatalog:$koneVersion")
     }
 }
 
-include(
-    "polynomialParametrisationIsAlgebraic",
-    "voronoiDiagram",
-    "planimetricsComputationExample",
-)
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
+    }
+}
+
+plugins {
+    id("com.lounres.gradle.feature") version "1.1.0"
+}
+
+structuring {
+    "polynomialParametrisationIsAlgebraic"("kotlin jvm")
+    "voronoiDiagram"("kotlin jvm")
+    "planimetricsComputationExample"("kotlin jvm")
+    "olympiads" {
+        "mathFest" {
+            "y2023" {
+                "g7vp2"("kotlin jvm")
+            }
+        }
+    }
+}
+
+featuresManagement {
+    tagsAssignment {
+        "kotlin common settings" since { hasAnyOfTags("kotlin jvm", "kotlin multiplatform") }
+    }
+}
