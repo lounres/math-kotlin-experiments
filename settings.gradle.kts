@@ -30,8 +30,25 @@ pluginManagement {
     }
 }
 
-include(
-    "polynomialParametrisationIsAlgebraic",
-    "voronoiDiagram",
-    "planimetricsComputationExample",
-)
+plugins {
+    id("com.lounres.gradle.feature") version "1.1.0"
+}
+
+structuring {
+    "polynomialParametrisationIsAlgebraic"("kotlin jvm")
+    "voronoiDiagram"("kotlin jvm")
+    "planimetricsComputationExample"("kotlin jvm")
+    "olympiads" {
+        "mathFest" {
+            "y2023" {
+                "g7vp2"("kotlin jvm")
+            }
+        }
+    }
+}
+
+featuresManagement {
+    tagsAssignment {
+        "kotlin common settings" since { hasAnyOfTags("kotlin jvm", "kotlin multiplatform") }
+    }
+}
