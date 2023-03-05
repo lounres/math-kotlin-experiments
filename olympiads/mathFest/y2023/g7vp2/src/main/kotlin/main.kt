@@ -14,7 +14,7 @@ import com.lounres.kone.util.collectionOperations.component7
 /**
  * The data class is going to store solutions of the rebus.
  *
- * P.S. I called it and variables in it to not confuse myself later.
+ * P.S. I called it and variables in it in Russian to not confuse myself later.
  */
 data class ФЕВРАЛЬ(
     val Ф: Int,
@@ -43,11 +43,11 @@ fun ФЕВРАЛЬ(args: List<Int>): ФЕВРАЛЬ {
 }
 
 /**
- * Property represents the first fraction in the rebus.
+ * A property that represents the first fraction in the rebus.
  */
 val ФЕВРАЛЬ.frac1: Rational get() = Rational(Ф, Е)
 /**
- * Property represents the second fraction in the rebus.
+ * A property that represents the second fraction in the rebus.
  */
 val ФЕВРАЛЬ.frac2: Rational get() = Rational(В * 10 + Р, (А * 10 + Л) * 10 + Ь)
 
@@ -57,7 +57,7 @@ val ФЕВРАЛЬ.frac2: Rational get() = Rational(В * 10 + Р, (А * 10 + Л)
 val digits = (0 until 10).toList()
 
 /**
- * Function that validates that the sum is actually one.
+ * A function that validates that the sum is actually one.
  * So, if the digits are all different, the instance is the sought solution of the rebus.
  */
 fun ФЕВРАЛЬ.check(): Boolean = Rational.field {
