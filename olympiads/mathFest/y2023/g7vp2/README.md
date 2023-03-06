@@ -1,4 +1,4 @@
-# Mathematical Festival, 2023, [problem 2 in 7th vertical grade](https://olympiads.mccme.ru/matprazdnik/prob_23_vert.html)
+# Mathematical Festival, 2023, [problem 2 in 7th vertical grade](https://olympiads.mccme.ru/matprazdnik/prob_23_vert.html#v7)
 
 ## Statement of the problem
 
