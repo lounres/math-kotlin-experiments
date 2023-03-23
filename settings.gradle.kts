@@ -31,24 +31,24 @@ pluginManagement {
 }
 
 plugins {
-    id("com.lounres.gradle.feature") version "1.1.0"
+    id("com.lounres.gradle.stal") version "1.0.0"
 }
 
-structuring {
-    "polynomialParametrisationIsAlgebraic"("kotlin jvm")
-    "voronoiDiagram"("kotlin jvm")
-    "planimetricsComputationExample"("kotlin jvm")
-    "olympiads" {
-        "mathFest" {
-            "y2023" {
-                "g7vp2"("kotlin jvm")
+stal {
+    structure {
+        "polynomialParametrisationIsAlgebraic"("kotlin jvm")
+        "voronoiDiagram"("kotlin jvm")
+        "planimetricsComputationExample"("kotlin jvm")
+        "olympiads" {
+            "mathFest" {
+                "y2023" {
+                    "g7vp2"("kotlin jvm")
+                }
             }
         }
     }
-}
 
-featuresManagement {
-    tagsAssignment {
-        "kotlin common settings" since { hasAnyOfTags("kotlin jvm", "kotlin multiplatform") }
+    tag {
+        "kotlin common settings" since { hasAnyOf("kotlin jvm", "kotlin multiplatform") }
     }
 }

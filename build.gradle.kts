@@ -18,8 +18,8 @@ allprojects {
 
 val jvmTargetVersion: String by properties
 
-featuresManagement {
-    features {
+stal {
+    action {
         on("kotlin jvm") {
             apply(plugin = "org.jetbrains.kotlin.jvm")
             configure<KotlinJvmProjectExtension> {
