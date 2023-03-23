@@ -17,9 +17,10 @@ fun main(): Unit = Rational.field.planimetricsCalculationContext {
     Prove that T, H, and midpoint M of segment [AB] are collinear.
      */
 
-    // Let's declare point of our triangle.
+    // Let's declare the vertices of our triangle.
     // We assign concrete points to A and B because
-    // with loss of generality we lessen computer's work.
+    // with loss of generality we lessen computer's work
+    // Obviously, we define C as an arbitrary point.
     val A = origin
     val B = xBasis
     val C by Point
