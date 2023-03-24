@@ -19,7 +19,7 @@ fun main(): Unit = Rational.field.planimetricsCalculationContext {
 
     // Let's declare the vertices of our triangle.
     // We assign concrete points to A and B because
-    // without loss of generality we lessen computer's work
+    // without loss of generality we lessen computer's work.
     // Obviously, we define C as an arbitrary point.
     val A = origin
     val B = xBasis
